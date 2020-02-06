@@ -146,25 +146,24 @@ void CChatWindow::RenderText(const char* u8Str, float posX, float posY, uint32_t
 
 	while(*textCur)
 	{
-		// {BBCCDD}
-		// '{' и '}' соответствуют ASCII кодировке
+		// еЊ№й…ЌASCIIзј–з Ѓ
 		if(textCur[0] == '{' && ((&textCur[7] < textEnd) && textCur[7] == '}'))
 		{
-			// Выводим текст до фигурной скобки
+			// е°†ж–‡е­—жѕз¤єдёєе¤§ж‹¬еЏ·
 			if(textCur != textStart)
 			{
-				// Выводим до текущего символа
+				// иѕ“е‡єе€°еЅ“е‰Ќе­—з¬¦
 				pGUI->RenderText(posCur, colorCur, true, textStart, textCur);
 
-				// Высчитываем новое смещение
+				// и®Ўз®—ж–°зљ„еЃЏз§»й‡Џ
 				posCur.x += ImGui::CalcTextSize(textStart, textCur).x;
 			}
 
-			// Получаем цвет
+			// иЋ·еѕ—йўњи‰І
 			if(ProcessInlineHexColor(textCur+1, textCur+7, col))
 				colorCur = col;
 
-			// Двигаем смещение
+			// з§»еЉЁеЃЏз§»
 			textCur += 7;
 			textStart = textCur + 1;
 		}
@@ -247,29 +246,28 @@ void CChatWindow::AddToChatWindowBuffer(eChatMessageType type, char* szString, c
 	if(type == CHAT_TYPE_CHAT && strlen(szString) > MAX_LINE_LENGTH)
 	{
 		iBestLineLength = MAX_LINE_LENGTH;
-		// Находим первый пробел с конца
+		// д»Ће¤ґејЂе§‹еЇ»ж‰ѕз¬¬дёЂдёЄз©єй—ґ
 		while(szString[iBestLineLength] != ' ' && iBestLineLength)
 			iBestLineLength--;
 
-		// Если последнее слово больше 12 символов
+		// е¦‚жћњжњЂеђЋдёЂдёЄе­—и¶…иї‡12дёЄе­—з¬¦
 		if((MAX_LINE_LENGTH - iBestLineLength) > 12)
 		{
-			// Выводим до MAX_MESSAGE_LENGTH/2
+			// иѕ“е‡єе€°MAX_MESSAGE_LENGTH / 2
 			cp1251_to_utf8(entry.utf8Message, szString, MAX_LINE_LENGTH);
 			PushBack(entry);
 
-			// Выводим после MAX_MESSAGE_LENGTH/2
+			// MAX_MESSAGE_LENGTH / 2д№‹еђЋзљ„иѕ“е‡є
 			entry.szNick[0] = '\0';
 			cp1251_to_utf8(entry.utf8Message, szString+MAX_LINE_LENGTH);
 			PushBack(entry);
 		}
 		else
 		{
-			// Выводим до пробела
 			cp1251_to_utf8(entry.utf8Message, szString, iBestLineLength);
 			PushBack(entry);
 
-			// Выводим после пробела
+			// з©єж ј
 			entry.szNick[0] = '\0';
 			cp1251_to_utf8(entry.utf8Message, szString+(iBestLineLength+1));
 			PushBack(entry);

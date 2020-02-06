@@ -27,8 +27,8 @@ void ImGui_ImplRenderWare_NewFrame();
 void ImGui_ImplRenderWare_ShutDown();
 
 /*
-	Все координаты GUI-элементов задаются
-	относительно разрешения 1920x1080
+	设置了GUI元素的所有坐标。
+	关于1920x1080分辨率
 */
 #define MULT_X	0.00052083333f	// 1/1920
 #define MULT_Y	0.00092592592f 	// 1/1080

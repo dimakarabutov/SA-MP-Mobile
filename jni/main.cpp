@@ -18,13 +18,9 @@
 
 #include "util/armhook.h"
 #include "checkfilehash.h"
-#include "str_obfuscator_no_template.hpp"
 
 uintptr_t g_libGTASA = 0;
 const char* g_pszStorage = nullptr;
-
-const auto encryptedAddress = cryptor::create("", 0);
-unsigned short port = 0;
 
 CGame *pGame = nullptr;
 CNetGame *pNetGame = nullptr;
@@ -108,8 +104,8 @@ void InitInGame()
 	if(!bNetworkInited && pSettings->Get().bOnline)
 	{
 		pNetGame = new CNetGame( 
-			encryptedAddress.decrypt(),
-			port, 
+			pSettings->Get().szHost,
+			pSettings->Get().iPort, 
 			pSettings->Get().szNickName,
 			pSettings->Get().szPassword);
 		bNetworkInited = true;

@@ -5,6 +5,7 @@
 #include <vector>
 #include <list>
 #include <unistd.h>
+#include <iconv.h>
 
 #define SAMP_VERSION	"0.3.7"
 #define PORT_VERSION	"0.69"

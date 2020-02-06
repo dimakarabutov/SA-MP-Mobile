@@ -247,7 +247,7 @@ void CDialogWindow::Render()
 		}
 	}
 
-	// Размешаем по центру
+	// ж’­ж”ѕењЁдё­еїѓ
 	ImGui::SetWindowSize(ImVec2(-1, -1));
 	ImVec2 size = ImGui::GetWindowSize();
 	ImGui::SetWindowPos( ImVec2( ((io.DisplaySize.x - size.x)/2), ((io.DisplaySize.y - size.y)/2)) );

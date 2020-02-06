@@ -21,7 +21,7 @@ CPlayerTags::CPlayerTags()
 
 CPlayerTags::~CPlayerTags() {}
 
-// допилить
+// е®Њж€ђ
 void CPlayerTags::Render()
 {
 	VECTOR VecPos;
@@ -127,7 +127,7 @@ void CPlayerTags::Draw(VECTOR* vec, char* szName, uint32_t dwColor,
 	// Health Bar
 	if(fHealth < 0.0f) return;
 
-	// округляем
+	// е››и€Ќдє”е…Ґ
 	Out.X = (float)((int)Out.X);
 	Out.Y = (float)((int)Out.Y);
 

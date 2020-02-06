@@ -4,17 +4,17 @@
 
 struct stSettings
 {
-	// client
+	// 客户端
 	char szNickName[MAX_PLAYER_NAME+1];
 	char szHost[MAX_SETTINGS_STRING+1];
 	int iPort;
 	char szPassword[MAX_SETTINGS_STRING+1];
 
-	// debug
+	// 调试
 	bool bDebug;
 	bool bOnline;
 
-	// gui
+	// GUI
 	char szFont[40];
 	float fFontSize;
 	int iFontOutline;
