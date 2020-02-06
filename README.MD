@@ -28,6 +28,8 @@ Forked from [SAMP-Android](https://github.com/y-kalcor/SA-MP-Android "SAMP-Andro
 
 - 3.自带的虚拟键盘只支持英文、数字、俄语，不要妄想搞内置中文输入法了（你能一个人造出一套中文输入法，还用来搞samp？），想支持中文？自己想办法
 
+- 4.打开游戏后闪退？SAMP配置文件应该放错位置了，自己研究自己的手机里应该放哪吧 或者你打包/签名出问题了！
+
 ## 一.准备环境
 
 ### 1.需要下载的东西
@@ -94,5 +96,18 @@ Forked from [SAMP-Android](https://github.com/y-kalcor/SA-MP-Android "SAMP-Andro
 
 ## 六.手机上的准备
 
-复制 根目录\data 目录内的目录到安卓跟目录（大多数手机是这样操作的，部分手机操作不一致）
+删除原来的GTASA（如有数据包，请提前备份）
+
 安装 根目录\files\apk\dist\build69.apk
+
+恢复数据包
+
+复制 根目录\data 目录内的目录到安卓跟目录（大多数手机是这样操作的，部分手机操作不一致）
+
+## 七.设置
+
+在手机中打开 Android\obb\com.rockstargames.gtasa\files\SAMP\settings.ini，修改[client]段相关信息（例如服务器ip 游戏昵称）
+
+## 八.愉快的玩♂耍♂
+
+打开手机里的GTA:SA，进入主界面后第二个按键为Multiplayer，点击即可
