@@ -36,15 +36,17 @@ Forked from [SAMP-Android](https://github.com/y-kalcor/SA-MP-Android "SAMP-Andro
 - [Android-NDK r14b](https://developer.android.com/ndk/downloads/older_releases.html) 编译
 - [JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 对重新打包的apk进行签名
 
-- 如不打算直接使用files文件夹提供的东西还需下载 [apktool](https://ibotpeaches.github.io/Apktool/install/) （解包apk）
-
 - 附加：游戏数据包 [提取码: g4fp](https://pan.baidu.com/s/1hzLMiT-mOsRTtZxjH8eUzQ)
 
 ### 2.系统环境配置
 
-在环境变量“Path”下分别新增：NDK所在目录 jdk所在目录下的bin目录
+将本库放到一个固定的位置“根目录”
+
+在环境变量“Path”下分别新增：1.NDK所在目录 2.jdk所在目录下的bin目录 3.根目录\files
 
 ## 二.编译
+
+打开Powershell或者cmd
 
 ```bash
 > cd 根目录\jni
@@ -55,7 +57,7 @@ Forked from [SAMP-Android](https://github.com/y-kalcor/SA-MP-Android "SAMP-Andro
 
 ```bash
 > cd 根目录\files
-> apktool d 根目录\files\build69.apk -o 根目录\files\apk -f
+> .\apktool d G:\Project\SA-MP-Android\files\build69.apk -o G:\Project\SA-MP-Android\files\apk -f
 ```
 
 ## 四.打包
@@ -64,7 +66,7 @@ Forked from [SAMP-Android](https://github.com/y-kalcor/SA-MP-Android "SAMP-Andro
 
 ```bash
 > cd 根目录\files
-> apktool b 根目录\files\apk -o 根目录\files\apk\dist\build69.apk -f
+> .\apktool b G:\Project\SA-MP-Android\files\apk -o G:\Project\SA-MP-Android\files\apk\dist\build69.apk -f
 ```
 
 ## 五.签名
@@ -85,7 +87,12 @@ Forked from [SAMP-Android](https://github.com/y-kalcor/SA-MP-Android "SAMP-Andro
 
 ```bash
 > cd 根目录\files\apk\dist
-> jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore 根目录\files\sampandroid.jks build69.apk sampandroid
+> jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore G:\Project\SA-MP-Android\files\sampandroid.jks build69.apk sampandroid
 ```
 
+根目录\files\apk\dist\build69.apk 为最终可安装版本
+
 ## 六.手机上的准备
+
+复制 根目录\data 目录内的目录到安卓跟目录（大多数手机是这样操作的，部分手机操作不一致）
+安装 根目录\files\apk\dist\build69.apk
