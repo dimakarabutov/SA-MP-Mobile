@@ -59,7 +59,7 @@ Forked from [SAMP-Android](https://github.com/y-kalcor/SA-MP-Android "SAMP-Andro
 
 ```bash
 > cd 根目录\files
-> .\apktool d G:\Project\SA-MP-Android\files\build69.apk -o G:\Project\SA-MP-Android\files\apk -f
+> .\apktool d 根目录\files\build69.apk -o 根目录\files\apk -f
 ```
 
 ## 四.打包
@@ -68,7 +68,7 @@ Forked from [SAMP-Android](https://github.com/y-kalcor/SA-MP-Android "SAMP-Andro
 
 ```bash
 > cd 根目录\files
-> .\apktool b G:\Project\SA-MP-Android\files\apk -o G:\Project\SA-MP-Android\files\apk\dist\build69.apk -f
+> .\apktool b 根目录\files\apk -o 根目录\files\apk\dist\build69.apk -f
 ```
 
 ## 五.签名
@@ -89,7 +89,7 @@ Forked from [SAMP-Android](https://github.com/y-kalcor/SA-MP-Android "SAMP-Andro
 
 ```bash
 > cd 根目录\files\apk\dist
-> jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore G:\Project\SA-MP-Android\files\sampandroid.jks build69.apk sampandroid
+> jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore 根目录\files\sampandroid.jks build69.apk sampandroid
 ```
 
 根目录\files\apk\dist\build69.apk 为最终可安装版本
