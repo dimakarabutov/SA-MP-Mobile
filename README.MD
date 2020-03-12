@@ -39,11 +39,9 @@ Thanks:
 
 ### Environment
 
-- [Source](https://github.com/Hobr/SA-MP-Android/archive/master.zip)
+- [Source](https://github.com/SA-MP-Mobile/SA-MP-Mobile/archive/build69.zip)
 - [Android-NDK r14b](https://developer.android.com/ndk/downloads/older_releases.html)
 - [JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-
-- Addition:Game data(Useful for Chinese players.) [Key:g4fp](https://pan.baidu.com/s/1hzLMiT-mOsRTtZxjH8eUzQ)
 
 ### System
 
