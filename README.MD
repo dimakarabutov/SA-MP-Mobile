@@ -1,113 +1,123 @@
-# SAMP-Android
+# SA-MP Mobile
+
+[Chinese edition](https://github.com/SA-MP-Mobile/SA-MP-Mobile/README-CN.MD)
 
 Forked from [SAMP-Android](https://github.com/y-kalcor/SA-MP-Android "SAMP-Android")
 
-## 零.声明
+## Getting Started
 
-### 1.个人声明
+### Statement
 
-- 1.本文全程均已在Windows 10 x64上测试过，其他系统理论上可以，但部分细节处步骤可能不一致，请自行解决
+- 1.This the oldest source of SA-MP Mobile,we won't open source the latest version,this repository is aim to help you solve the basic problem when you want to run it.
 
-- 2.文中“根目录”一词指本库所在文件夹的绝对路径（如：C:\SAMP-Android）
+- 1.I have tested the steps on Windows 10,it can also run on MAC and Linux,but some details may be different.
 
-- 2.本人不为本项目衍生的任何问题负责
+- 2.The word "rootdir" refers to the source's absolute path (e.g:C:\SA-MP\Mobile).
 
-- 3.任何人均可使用本文提供的方法，任何人均可进行二次开发和发行，但不可以删除原作者的版权
+- 3.I'm not responsible for the problems caused by this repository,I don't provide the service for you to solve the problem.
 
-- 4.本人不提供任何有偿或无偿技术支持（说明白了就是别来烦我，别问我乱七八糟的问题，除非写的有问题）
+- 4.You can make the secondary development but you must keep the copyright of the origin developer.
 
-有特殊情况请联系本人 QQ1270329917
+Contact:
 
-特别感谢：IGTA-褪色
+- Tencent QQ 1270329917
+- Mail mkowes@vip.qq.com or hobrimttxx@gmail.com
 
-### 2.注意事项
+Thanks:
 
-- 1.目前不支持中文。中文默认会被转码到俄语或乱码 咋搞呢？用iconv将消息流从UTF8编码转到GBK即可，自己开发去吧
+- IGTA Tuise
 
-- 2.绝大多数服务器都玩不成！别妄图直接拿去开快餐
+### Precautions
 
-- 3.自带的虚拟键盘只支持英文、数字、俄语，不要妄想搞内置中文输入法了（你能一个人造出一套中文输入法，还用来搞samp？），想支持中文？自己想办法（IGTA的方案是外置一个软件）
+- 1.This version only support English,Russian.If you want to support more language,use the iconv to convert the message buffer from the origin coding to UTF-8.
 
-- 4.打开游戏后闪退？配置文件应该放错位置了，自己研究自己的手机里应该放哪吧 或者你打包/签名出问题了！
+- 2.This version don't support Textdraw,Object,some types of Dialogs and so on.
 
-## 一.准备环境
+- 3.If you game exits as soon as you run the app,you need to check you config files is put in the appropriate dir or not.
 
-### 1.需要下载的东西
+## Requirements
 
-- [这个库](https://github.com/Hobr/SA-MP-Android/archive/master.zip) 不用解释
-- [Android-NDK r14b](https://developer.android.com/ndk/downloads/older_releases.html) 编译
-- [JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 对重新打包的apk进行签名
+### Environment
 
-- 附加：游戏数据包 [提取码: g4fp](https://pan.baidu.com/s/1hzLMiT-mOsRTtZxjH8eUzQ)
+- [Source](https://github.com/Hobr/SA-MP-Android/archive/master.zip)
+- [Android-NDK r14b](https://developer.android.com/ndk/downloads/older_releases.html)
+- [JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-### 2.系统环境配置
+- Addition:Game data(Useful for Chinese players.) [Key:g4fp](https://pan.baidu.com/s/1hzLMiT-mOsRTtZxjH8eUzQ)
 
-将本库放到一个固定的位置“根目录”
-
-在环境变量“Path”下分别新增：1.NDK所在目录 2.jdk所在目录下的bin目录 3.根目录\files
-
-## 二.编译
-
-打开Powershell或者cmd
+### System
 
 ```bash
-> cd 根目录\jni
-> ndk-build.cmd NDK_PROJECT_PATH=根目录 -B NDK_DEBUG=0
+> cd rootdir
+> git clone https://github.com/SA-MP-Mobile/SA-MP-Mobile.git
 ```
 
-## 三.解包
+Edit the user Enviromnet Variable 'Path' and add these two dirs:1."NDK-CMD.bat"'s dir 2.jdk/bin 3.rootdir\files
+
+## 1.Compilation
+
+Open the cmd or PowerShell.
 
 ```bash
-> cd 根目录\files
-> .\apktool d 根目录\files\build69.apk -o 根目录\files\apk -f
+> cd rootdir\jni
+> NDK_PROJECT_PATH=rootdir NDK_DEBUG=0 ndk-build.cmd -B
 ```
 
-## 四.打包
-
-先将 根目录\libs\armeabi-v7a\libsamp.so 替换到 根目录\files\lib\armeabi-v7a 目录下（要不然你搞了半天等于啥也没做......）
+## 2.Unpack the Game
 
 ```bash
-> cd 根目录\files
-> .\apktool b 根目录\files\apk -o 根目录\files\apk\dist\build69.apk -f
+> cd rootdir\files
+> .\apktool d rootdir\files\build69.apk -o rootdir\files\apk -f
 ```
 
-## 五.签名
+## 3.Pack the game
 
-网上有很多本部分的相关资料，可以参照其他地方的方法
+Paster rootdir\libs\armeabi-v7a\libsamp.so to rootdir\files\lib\armeabi-v7a
 
-### 1.生成签名
+then
 
 ```bash
-> chcp 936 # Console GBK（也可以不执行，但部分情况下JDK输出可能是乱码）
-> cd 根目录\files
+> cd rootdir\files
+> .\apktool b rootdir\files\apk -o rootdir\files\apk\dist\build69.apk -f
+```
+
+## 4.Sign the apk
+
+You can search this on Google or Baidu.
+
+### 4.1.Generate the signature
+
+```bash
+#> chcp 936 # If you are Chinese(use the GBK coding,run this at first)
+> cd rootdir\files
 > keytool -genkey -v -keystore sampandroid.jks -keyalg RSA -keysize 2048 -validity 10000 -alias sampandroid
-# 接下来请按照提示输入相关信息
+# Follow the notice and fill the blank.
 > keytool -importkeystore -srckeystore sampandroid.jks -destkeystore sampandroid.jks -deststoretype pkcs12
 ```
 
-### 2.签名
+### 4.2.Sign
 
 ```bash
-> cd 根目录\files\apk\dist
-> jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore 根目录\files\sampandroid.jks build69.apk sampandroid
+> cd rootdir\files\apk\dist
+> jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore rootdir\files\sampandroid.jks build69.apk sampandroid
 ```
 
-根目录\files\apk\dist\build69.apk 为最终可安装版本
+Then you can install rootdir\files\apk\dist\build69.apk in your Android.
 
-## 六.手机上的准备
+## 5.Install
 
-删除原来的GTASA（如有数据包，请提前备份）
+If you have installed the GTA:SA,remove it!But remember to make the backup of the data.
 
-安装 根目录\files\apk\dist\build69.apk
+Install rootdir\files\apk\dist\build69.apk
 
-恢复数据包
+Restore the data.
 
-复制 根目录\data 目录内的目录到安卓跟目录（大多数手机是这样操作的，部分手机操作不一致）
+Copy rootdir\data to the root dir of the game.
 
-## 七.设置
+## 6.Setting
 
-在手机中打开 Android\obb\com.rockstargames.gtasa\files\SAMP\settings.ini，修改[client]段相关信息（例如服务器ip 游戏昵称）
+Edit Android\obb\com.rockstargames.gtasa\files\SAMP\settings.ini.
 
-## 八.愉快的玩♂耍♂
+## 7.Play
 
-打开手机里的GTA:SA，进入主界面后第二个按键为Multiplayer，点击即可
+Open the app,click the second option of the main interface.
