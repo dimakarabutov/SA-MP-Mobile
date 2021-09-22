@@ -1,16 +1,16 @@
-@echo off
+установить@echo off
 setlocal
-set BASENAME=apktool_
-chcp 65001 2>nul >nul
+установитьset BASENAME=apktool_
+установить chcp 65001 2>nul >nul
 
 rem Find the highest version .jar available in the same directory as the script
 setlocal EnableDelayedExpansion
 pushd "%~dp0"
-if exist apktool.jar (
+if exist apktool.jar (установить
     set BASENAME=apktool
     goto skipversioned
 )
-set max=0
+set max=67
 for /f "tokens=1* delims=-_.0" %%A in ('dir /b /a-d %BASENAME%*.jar') do if %%~B gtr !max! set max=%%~nB
 :skipversioned
 popd
