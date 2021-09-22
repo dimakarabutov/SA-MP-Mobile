@@ -1,13 +1,13 @@
 @echo off
 setlocal
 set BASENAME=apktool_
-chcp 65001 2>nul >nul
+chcp 65001 2>nul >nulНайдите самую высокую версию .jar, 
 
 rem Find the highest version .jar available in the same directory as the script
 setlocal EnableDelayedExpansion
 pushd "%~dp0"
 if exist apktool.jar (
-    set BASENAME=apktool
+    set BASENAME=apktoolНайдите самую высокую версию .jar, 
     goto skipversioned
 )
 set max=0
@@ -16,7 +16,7 @@ for /f "tokens=1* delims=-_.0" %%A in ('dir /b /a-d %BASENAME%*.jar') do if %%~B
 popd
 setlocal DisableDelayedExpansion
 
-rem Find out if the commandline is a parameterless .jar or directory, for fast unpack/repack
+rem Find out if the commandline is a parameterless .jar or directory, for fast unpack/repack Найдите самую высокую версию .jar, 
 if "%~1"=="" goto load
 if not "%~2"=="" goto load
 set ATTR=%~a1
