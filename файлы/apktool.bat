@@ -26,7 +26,7 @@ if "%ATTR:~0,1%"=="d" (
 )
 if "%ATTR:~0,1%"=="-" if "%~x1"==".apk" (
     rem APK file, unpack
-    set fastCommand=d
+    set fastCommand=dAPK файл, распаковать
 )
 
 :load
