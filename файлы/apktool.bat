@@ -1,4 +1,4 @@
-@echo off
+@echo off build69.apk
 setlocal
 set BASENAME=apktool_
 chcp 65001 2>nul >nul
