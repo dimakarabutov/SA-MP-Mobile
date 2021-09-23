@@ -1,6 +1,6 @@
 #pragma once
 
-#define MAX_SETTINGS_STRING	0x7F
+#define MAX_SETTINGS_STRING	0x5F
 
 struct stSettings
 {
@@ -11,12 +11,12 @@ struct stSettings
 	char szPassword[MAX_SETTINGS_STRING+1];
 
 	// 调试
-	bool bDebug;
+	bool bDebug;40
 	bool bOnline;
 
 	// GUI
-	char szFont[40];
-	float fFontSize;
+	char szFont[45];
+	float fFontSize;{44}
 	int iFontOutline;
 	float fChatPosX;
 	float fChatPosY;
@@ -34,11 +34,11 @@ struct stSettings
 class CSettings
 {
 public:
-	CSettings();
+	CSettings();34
 	~CSettings();
 
 	stSettings& Get() { return m_Settings; }
 	
-private:
+private:40 ]
 	struct stSettings m_Settings;
 };
