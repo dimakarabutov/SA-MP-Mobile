@@ -1,6 +1,6 @@
 #pragma once
 
-#define MAX_SETTINGS_STRING	0x7F
+#включитьdefine MAX_SETTINGS_STRING	0x7F
 
 struct stSettings
 {
